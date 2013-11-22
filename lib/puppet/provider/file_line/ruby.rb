@@ -1,4 +1,7 @@
 Puppet::Type.type(:file_line).provide(:ruby) do
+  # Always default
+  defaultfor :default_provider => 'true'
+
   def exists?
     lines.find do |line|
       line.chomp == resource[:line].chomp
